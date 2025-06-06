@@ -1,6 +1,4 @@
-
-
-import Model2VecNative
+internal import Model2VecNative
 
 public class Model2Vec {
     
