@@ -1,0 +1,15 @@
+{
+  "originHash" : "40b5fb27bbd42363913c0f27d549b84323f84e39b7e3f5909b8ba7bbf6d153bb",
+  "pins" : [
+    {
+      "identity" : "model2vec.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/shubham0204/model2vec.swift",
+      "state" : {
+        "branch" : "main",
+        "revision" : "3ddd0f5aa8c82525b3548291ac8d4a5da6bbbebf"
+      }
+    }
+  ],
+  "version" : 3
+}
