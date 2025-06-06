@@ -9,23 +9,23 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "Model2Vec",
-            targets: ["model2vec"]),
+            targets: ["model2vecSwiftWrapper"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "model2vec",
+            name: "model2vecSwiftWrapper",
             dependencies: ["model2vecNativeLibs"]
         ),
         .binaryTarget(
             name: "model2vecNativeLibs",
             url: "https://github.com/shubham0204/model2vec.swift/releases/download/v1/model2vec.xcframework.zip",
-            checksum: "d77bd9c65d857a6fe59606c897355d2dd3bc5383a372417c99bc4c47ee2f567f"
+            checksum: "82de8728993cc47c4a05dc3c47571391299ce4c619263f5895f90b41c4d25104"
         ),
         .testTarget(
             name: "model2vecTests",
-            dependencies: ["model2vec"]
+            dependencies: ["model2vecSwiftWrapper"]
         ),
     ]
 )

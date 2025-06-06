@@ -1,6 +1,6 @@
 
 
-import Model2Vec
+import Model2VecNative
 
 public class Model2Vec {
     
@@ -9,7 +9,7 @@ public class Model2Vec {
     private var numThreads: UInt
     private var nativeInstance: OpaquePointer?
     
-    init(modelPath: String, tokenizerPath: String, numThreads: UInt = 4) {
+    public init(modelPath: String, tokenizerPath: String, numThreads: UInt = 4) {
         self.modelPath = modelPath
         self.tokenizerPath = tokenizerPath
         self.numThreads = numThreads
@@ -20,7 +20,7 @@ public class Model2Vec {
         }
     }
     
-    func getEmbeddings(texts: [String]) -> [[Float32]] {
+    public func getEmbeddings(texts: [String]) -> [[Float32]] {
         texts.forEach { text in
             text.withCString { textCharPtr in
                 model2vec_add_seq_buffer(nativeInstance, textCharPtr)
@@ -39,7 +39,7 @@ public class Model2Vec {
         return embeddings
     }
     
-    func getEmbeddingDims() -> UInt {
+    public func getEmbeddingDims() -> UInt {
         return model2vec_embedding_dims(nativeInstance)
     }
     
