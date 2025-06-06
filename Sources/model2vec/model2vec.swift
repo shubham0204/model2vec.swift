@@ -2,7 +2,7 @@
 
 import Model2Vec
 
-class Model2Vec {
+public class Model2Vec {
     
     private var modelPath: String
     private var tokenizerPath: String
