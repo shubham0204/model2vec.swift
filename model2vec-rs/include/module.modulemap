@@ -1,0 +1,3 @@
+module Model2VecNative {
+  header "model2vec.h"
+  export *}

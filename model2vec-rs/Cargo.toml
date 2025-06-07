@@ -1,0 +1,15 @@
+[package]
+name = "model2vec"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokenizers = { version = "0.19.1", default-features = false, features = ["onig"] }
+safetensors = "0.5.2"
+memmap2 = "0.9.5"
+anyhow = "1.0.95"
+rayon = "1.10.0"
+
+[lib]
+name = "model2vec"
+crate-type = ["staticlib"]
