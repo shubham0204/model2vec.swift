@@ -30,30 +30,40 @@ struct ContentView: View {
                 .font(.headline)
             Text("Generate static sentence embeddings on-device in Mac/iOS apps")
                 .font(.subheadline)
-            TextField(text: $sent1) {
-                Text("Enter first sentence...")
-                    .font(.title3)
+            Text("Embedding dims: \(model2vecProvider.getEmbeddingDims())")
+                .font(.caption)
+            
+            VStack {
+                TextField(text: $sent1) {
+                    Text("Enter first sentence...")
+                        .font(.title3)
+                }
+                TextField(text: $sent2) {
+                    Text("Enter second sentence...")
+                        .font(.title3)
+                }
+                Button(action: {
+                    let start = DispatchTime.now()
+                    similarityScore = model2vecProvider.getSimilarityScore(sent1: sent1, sent2: sent2)
+                    let end = DispatchTime.now()
+                    executionTimeMillis = (Float(end.uptimeNanoseconds - start.uptimeNanoseconds)) / 1_000_000 as Float
+                }) {
+                    Text("Get score")
+                }
+                if let similarityScore = similarityScore {
+                    Text("Similarity score is \(similarityScore)")
+                        .padding(16)
+                }
+                if let executionTimeMillis = executionTimeMillis {
+                    Text("Inference time (ms) is \(executionTimeMillis) ms")
+                        .padding(16)
+                }
             }
-            TextField(text: $sent2) {
-                Text("Enter second sentence...")
-                    .font(.title3)
-            }
-            Button(action: {
-                let start = DispatchTime.now()
-                similarityScore = model2vecProvider.getSimilarityScore(sent1: sent1, sent2: sent2)
-                let end = DispatchTime.now()
-                executionTimeMillis = (Float(end.uptimeNanoseconds - start.uptimeNanoseconds)) / 1_000_000 as Float
-            }) {
-                Text("Get score")
-            }
-            if let similarityScore = similarityScore {
-                Text("Similarity score is \(similarityScore)")
-                    .padding(16)
-            }
-            if let executionTimeMillis = executionTimeMillis {
-                Text("Inference time (ms) is \(executionTimeMillis) ms")
-                    .padding(16)
-            }
+            .padding(16)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(.secondary, lineWidth: 1)
+            )
         }
         .padding()
     }

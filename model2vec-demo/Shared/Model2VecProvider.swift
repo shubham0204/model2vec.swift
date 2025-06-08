@@ -20,9 +20,13 @@ import model2vecLib
 class Model2VecProvider: ObservableObject {
     
     private let model2vec: Model2Vec = Model2Vec(
-        modelPath: Bundle.main.path(forResource: "embeddings", ofType: "safetensors")!,
+        modelPath: Bundle.main.path(forResource: "model", ofType: "safetensors")!,
         tokenizerPath: Bundle.main.path(forResource: "tokenizer", ofType: "json")!
     )
+    
+    public func getEmbeddingDims() -> UInt {
+        return model2vec.getEmbeddingDims()
+    }
     
     public func getSimilarityScore(sent1: String, sent2: String) -> Float {
         let embeddings = model2vec.getEmbeddings(texts: [sent1, sent2])
