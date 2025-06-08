@@ -4,6 +4,26 @@
 |---|---|
 |  <center>Demo iOS App</center> | <center>Demo macOS App</center> |
 
+## API Overview
+
+
+```swift
+import model2vecLib
+
+let model2vec: Model2Vec = Model2Vec(
+    modelPath: "<PATH>/embeddings.safetensors",
+    tokenizerPath: "<PATH>/tokenizer.json"
+)
+let embeddingDims = model2vec.getEmbeddingDims()
+let embeddings: [[Float]] = model2vec.getEmbeddings(
+    texts: [
+        "The cat sat on the mat.",
+        "The stock market crashed today.",
+        "We can have a meeting at 10 AM tomorrow.",
+    ]
+)
+```
+
 ## Setup
 
 ### Using the Swift Package
