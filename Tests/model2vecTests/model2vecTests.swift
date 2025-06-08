@@ -1,10 +1,11 @@
 import Testing
-@testable import model2vec
+@testable import model2vecLib
 
 @Test func example() async throws {
+    print(#file)
     let model2vec = Model2Vec(
-        modelPath: "/Users/shubhampanchal/RustProjects/model2vec/embeddings.safetensors",
-        tokenizerPath: "/Users/shubhampanchal/RustProjects/model2vec/tokenizer.json"
+        modelPath: "model2vec-demo/embeddings.safetensors",
+        tokenizerPath: "model2vec-demo/tokenizer.json"
     )
     let embeddingDims = model2vec.getEmbeddingDims()
     let embeddings = model2vec.getEmbeddings(texts: ["Hello World"])
