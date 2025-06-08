@@ -19,7 +19,7 @@ import SwiftUI
 struct ContentView: View {
     
     private let model2vecProvider = Model2VecProvider()
-    @State private var showModelDownloadDialog: Bool = false
+    @State private var executionTimeMillis: Float? = nil
     @State private var similarityScore: Float? = nil
     @State private var sent1: String = ""
     @State private var sent2: String = ""
@@ -32,17 +32,27 @@ struct ContentView: View {
                 .font(.subheadline)
             TextField(text: $sent1) {
                 Text("Enter first sentence...")
+                    .font(.title3)
             }
             TextField(text: $sent2) {
                 Text("Enter second sentence...")
+                    .font(.title3)
+            }
+            Button(action: {
+                let start = DispatchTime.now()
+                similarityScore = model2vecProvider.getSimilarityScore(sent1: sent1, sent2: sent2)
+                let end = DispatchTime.now()
+                executionTimeMillis = (Float(end.uptimeNanoseconds - start.uptimeNanoseconds)) / 1_000_000 as Float
+            }) {
+                Text("Get score")
             }
             if let similarityScore = similarityScore {
                 Text("Similarity score is \(similarityScore)")
+                    .padding(16)
             }
-            Button(action: {
-                similarityScore = model2vecProvider.getSimilarityScore(sent1: sent1, sent2: sent2)
-            }) {
-                Text("Get score")
+            if let executionTimeMillis = executionTimeMillis {
+                Text("Inference time (ms) is \(executionTimeMillis) ms")
+                    .padding(16)
             }
         }
         .padding()
