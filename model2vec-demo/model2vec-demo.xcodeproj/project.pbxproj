@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		159F04782DF2C13E00FFBF88 /* Model2Vec in Frameworks */ = {isa = PBXBuildFile; productRef = 159F04772DF2C13E00FFBF88 /* Model2Vec */; };
-		159F047B2DF2C15100FFBF88 /* Model2Vec in Frameworks */ = {isa = PBXBuildFile; productRef = 159F047A2DF2C15100FFBF88 /* Model2Vec */; };
+		15BE09C92DF5851A00874541 /* embeddings.safetensors in Resources */ = {isa = PBXBuildFile; fileRef = 15BE09C72DF5851A00874541 /* embeddings.safetensors */; };
+		15BE09CA2DF5851A00874541 /* tokenizer.json in Resources */ = {isa = PBXBuildFile; fileRef = 15BE09C82DF5851A00874541 /* tokenizer.json */; };
+		15BE09CB2DF5851A00874541 /* embeddings.safetensors in Resources */ = {isa = PBXBuildFile; fileRef = 15BE09C72DF5851A00874541 /* embeddings.safetensors */; };
+		15BE09CC2DF5851A00874541 /* tokenizer.json in Resources */ = {isa = PBXBuildFile; fileRef = 15BE09C82DF5851A00874541 /* tokenizer.json */; };
+		15BE09CF2DF5A3F600874541 /* Model2Vec in Frameworks */ = {isa = PBXBuildFile; productRef = 15BE09CE2DF5A3F600874541 /* Model2Vec */; };
+		15BE09D12DF5A40A00874541 /* Model2Vec in Frameworks */ = {isa = PBXBuildFile; productRef = 15BE09D02DF5A40A00874541 /* Model2Vec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15BE09C72DF5851A00874541 /* embeddings.safetensors */ = {isa = PBXFileReference; lastKnownFileType = file; path = embeddings.safetensors; sourceTree = "<group>"; };
+		15BE09C82DF5851A00874541 /* tokenizer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tokenizer.json; sourceTree = "<group>"; };
 		15D904D82DF2BF1E00EF6BD5 /* model2vec-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "model2vec-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D904E92DF2BF4F00EF6BD5 /* model2vec-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "model2vec-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -53,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				159F04782DF2C13E00FFBF88 /* Model2Vec in Frameworks */,
+				15BE09CF2DF5A3F600874541 /* Model2Vec in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				159F047B2DF2C15100FFBF88 /* Model2Vec in Frameworks */,
+				15BE09D12DF5A40A00874541 /* Model2Vec in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +84,8 @@
 		15D904CD2DF2BF0500EF6BD5 = {
 			isa = PBXGroup;
 			children = (
+				15BE09C72DF5851A00874541 /* embeddings.safetensors */,
+				15BE09C82DF5851A00874541 /* tokenizer.json */,
 				159F047C2DF2C1C600FFBF88 /* Shared */,
 				15D904DA2DF2BF1E00EF6BD5 /* model2vec-macos */,
 				15D904EA2DF2BF4F00EF6BD5 /* model2vec-ios */,
@@ -115,7 +123,7 @@
 			);
 			name = "model2vec-macos";
 			packageProductDependencies = (
-				159F04772DF2C13E00FFBF88 /* Model2Vec */,
+				15BE09CE2DF5A3F600874541 /* Model2Vec */,
 			);
 			productName = "model2vec-macos";
 			productReference = 15D904D82DF2BF1E00EF6BD5 /* model2vec-macos.app */;
@@ -139,7 +147,7 @@
 			);
 			name = "model2vec-ios";
 			packageProductDependencies = (
-				159F047A2DF2C15100FFBF88 /* Model2Vec */,
+				15BE09D02DF5A40A00874541 /* Model2Vec */,
 			);
 			productName = "model2vec-ios";
 			productReference = 15D904E92DF2BF4F00EF6BD5 /* model2vec-ios.app */;
@@ -173,7 +181,7 @@
 			mainGroup = 15D904CD2DF2BF0500EF6BD5;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				159F04762DF2C13E00FFBF88 /* XCRemoteSwiftPackageReference "model2vec" */,
+				15BE09CD2DF5A3F600874541 /* XCRemoteSwiftPackageReference "model2vec" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 15D904D92DF2BF1E00EF6BD5 /* Products */;
@@ -191,6 +199,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15BE09C92DF5851A00874541 /* embeddings.safetensors in Resources */,
+				15BE09CA2DF5851A00874541 /* tokenizer.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +208,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15BE09CB2DF5851A00874541 /* embeddings.safetensors in Resources */,
+				15BE09CC2DF5851A00874541 /* tokenizer.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,25 +595,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		159F04762DF2C13E00FFBF88 /* XCRemoteSwiftPackageReference "model2vec" */ = {
+		15BE09CD2DF5A3F600874541 /* XCRemoteSwiftPackageReference "model2vec" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/shubham0204/model2vec.swift";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		159F04772DF2C13E00FFBF88 /* Model2Vec */ = {
+		15BE09CE2DF5A3F600874541 /* Model2Vec */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 159F04762DF2C13E00FFBF88 /* XCRemoteSwiftPackageReference "model2vec" */;
+			package = 15BE09CD2DF5A3F600874541 /* XCRemoteSwiftPackageReference "model2vec" */;
 			productName = Model2Vec;
 		};
-		159F047A2DF2C15100FFBF88 /* Model2Vec */ = {
+		15BE09D02DF5A40A00874541 /* Model2Vec */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 159F04762DF2C13E00FFBF88 /* XCRemoteSwiftPackageReference "model2vec" */;
+			package = 15BE09CD2DF5A3F600874541 /* XCRemoteSwiftPackageReference "model2vec" */;
 			productName = Model2Vec;
 		};
 /* End XCSwiftPackageProductDependency section */

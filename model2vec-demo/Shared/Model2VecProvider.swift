@@ -1,17 +1,31 @@
+//
+// Copyright 2025 Shubham Panchal
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
 import Foundation
 import model2vecLib
 
 class Model2VecProvider: ObservableObject {
     
-    @Published private var isModelDownloaded = isModelDownloaded()
     private let model2vec: Model2Vec = Model2Vec(
-        modelPath: "/Users/shubhampanchal/RustProjects/model2vec/embeddings.safetensors",
-        tokenizerPath: "/Users/shubhampanchal/RustProjects/model2vec/tokenizer.json"
+        modelPath: Bundle.main.path(forResource: "embeddings", ofType: "safetensors")!,
+        tokenizerPath: Bundle.main.path(forResource: "tokenizer", ofType: "json")!
     )
     
-    private static func isModelDownloaded() -> Bool {
+    public func isModelDownloaded() -> Bool {
         let fileManager = FileManager()
-        
         let documentsUrl = try! fileManager.url(
             for: .applicationSupportDirectory,
             in: .userDomainMask,
@@ -20,7 +34,6 @@ class Model2VecProvider: ObservableObject {
         ).appendingPathComponent(Bundle.main.bundleIdentifier!)
         let embeddingsUrl = documentsUrl.appendingPathComponent("embeddings.safetensors")
         let tokenizerUrl = documentsUrl.appendingPathComponent("tokenizer.json")
-        
         return fileManager.fileExists(atPath: embeddingsUrl.path()) && fileManager.fileExists(atPath: tokenizerUrl.path())
     }
     
